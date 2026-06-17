@@ -12,6 +12,14 @@ runs-on: windows-latest
 
 A execução ocorre em um ambiente Windows fornecido pelo GitHub.
 
+
+## Conceitos Utilizados
+
+* GitHub Actions
+* Windows Runner (windows-latest)
+* PowerShell / Shell Commands
+* HTML (geração do relatório)
+  
 ## Gatilhos
 
 * Push nas branches `main` e `master`
