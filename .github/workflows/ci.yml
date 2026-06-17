@@ -35,7 +35,7 @@ jobs:
       - name: Gerar Relatório de Teste
         run: |
           mkdir relatorio-pasta
-          echo "<h1>Relatório de Testes da Pós</h1><p>Status: Sucesso!</p>" > relatorio-pasta/index.html
+          echo "<h1>Relatório de Testes da Pós</h1><p>Status: O relatório do Max Willian Barbosa foi gerado com sucesso!</p>" > relatorio-pasta/index.html
 
       # Etapa 4: Publica o relatório como artefato da execução
       - name: Upload do Relatório de Testes
