@@ -1,0 +1,47 @@
+name: Criação de Pipeline de Teste
+
+# Eventos que disparam a execução da pipeline
+on:
+  push:
+    branches:
+      - main
+      - master
+
+  # Permite a execução manual da pipeline pela interface do GitHub Actions
+  workflow_dispatch:
+
+  # Executa automaticamente a cada 20 minutos
+  schedule:
+    - cron: '*/20 * * * *'
+
+jobs:
+  test-automation:
+    runs-on: windows-latest
+
+    steps:
+      # Etapa 1: Realiza o checkout do código-fonte do repositório
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      # Etapa 2: Executa uma simulação de testes automatizados com sucesso
+      - name: Executar Testes Fakes com Sucesso
+        run: |
+          echo "Iniciando os testes automatizados..."
+          echo "Teste 1: Login - PASSOU"
+          echo "Teste 2: Cadastro - PASSOU"
+          echo "Todos os testes foram executados com sucesso!"
+
+      # Etapa 3: Gera um relatório HTML de resultados dos testes
+      - name: Gerar Relatório de Teste
+        run: |
+          mkdir relatorio-pasta
+          echo "<h1>Relatório de Testes da Pós</h1><p>Status: Sucesso!</p>" > relatorio-pasta/index.html
+
+      # Etapa 4: Publica o relatório como artefato da execução
+      - name: Upload do Relatório de Testes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: meu-relatorio-de-testes
+          path: relatorio-pasta/
+          retention-days: 7
