@@ -10,9 +10,9 @@ on:
   # Permite a execução manual da pipeline pela interface do GitHub Actions
   workflow_dispatch:
 
-  # Executa automaticamente a cada 20 minutos
+  # Executa automaticamente todos os dias as 9 horas
   schedule:
-    - cron: '*/20 * * * *'
+    - cron: '0 9 * * *'
 
 jobs:
   test-automation:
